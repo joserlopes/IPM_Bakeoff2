@@ -62,9 +62,9 @@ function draw()
     textAlign(LEFT);
     text("Trial " + (current_trial + 1) + " of " + trials.length, 50, 20);
         
-    // Draw all targets
+  // Draw all targets
 	for (var i = 0; i < legendas.getRowCount(); i++) targets[i].draw();
-    
+
     // Draw the target label to be selected in the current trial
     textFont("Arial", 20);
     textAlign(CENTER);
@@ -141,6 +141,7 @@ function mousePressed()
       // Check if the user clicked over one of the targets
       if (targets[i].clicked(mouseX, mouseY)) 
       {
+        print(trials[current_trial]);
         // Checks if it was the correct target
         if (targets[i].id === trials[current_trial]) hits++;
         else misses++;
@@ -196,15 +197,21 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
   h_margin = horizontal_gap / (GRID_COLUMNS -1);
   v_margin = vertical_gap / (GRID_ROWS - 1);
 
-  names = legendas.getColumn("name");
-
+  let names = legendas.getColumn("name");
+  let IDs_preSort = {}
   let names_index = 0;
-  
+
+  for (let i = 0; i < legendas.getRowCount(); i++) {
+    IDs_preSort[names[i]] = i;
+  }
+  names.sort();  
+
   // Set targets in a 8 x 10 grid
   for (var r = 0; r < GRID_ROWS; r++)
   {
     for (var c = 0; c < GRID_COLUMNS; c++)
     {
+      
       let target_x = 40 + (h_margin + target_size) * c + target_size/2;        // give it some margin from the left border
       let target_y = (v_margin + target_size) * r + target_size/2;
       
@@ -212,8 +219,8 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
       let legendas_index = c + GRID_COLUMNS * r;
       
       let target_label = names[names_index++];
-      let target_id = legendas.getNum(legendas_index, 1);
-      
+      let target_id = IDs_preSort[target_label];
+
       
       let target = new Target(target_x, target_y + 40, target_size, target_label, target_id);
       targets.push(target);
