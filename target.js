@@ -1,13 +1,14 @@
 // Target class (position and width)
 class Target
 {
-  constructor(x, y, w, l, id)
+  constructor(x, y, w, l, id, color_value)
   {
     this.x      = x;
     this.y      = y;
     this.width  = w;
     this.label  = l;
     this.id     = id;
+    this.color_value = color_value;
   }
   
   // Checks if a mouse click took place
@@ -23,7 +24,7 @@ class Target
   {
     push();
     // Draw target
-    fill(color(155,155,155));                 
+    fill(this.color_value);                 
     circle(this.x, this.y, this.width);
 
     // Draw label
