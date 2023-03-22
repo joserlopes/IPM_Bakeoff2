@@ -23,7 +23,7 @@ class Target
   {
     push();
     // Draw target
-    let first_id = this.id;
+    let first_letter = this.label.charAt(0);
 
     switch(first_letter) {
       case '0':
@@ -114,7 +114,6 @@ class Target
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
-    fill(color(0,0,0));
     
     textAlign(CENTER);
     text(this.label.charAt(0), this.x, this.y-10);

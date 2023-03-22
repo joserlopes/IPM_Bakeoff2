@@ -216,7 +216,6 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
       let target_y = (v_margin + target_size) * r + target_size/2;
       
       // Find the appropriate label and ID for this target
-      let legendas_index = c + GRID_COLUMNS * r;
       
       let target_label = names[names_index++];
       let target_id = IDs_preSort[target_label];
