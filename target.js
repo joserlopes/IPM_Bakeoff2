@@ -23,66 +23,37 @@ class Target
   {
     push();
     // Draw target
-    let letter = this.label.charAt(0);
+    let id = this.id;
 
-    if (letter == '0') 
-      fill(color(255,255,255));        
-    else if (letter == 'A') 
+    if (id <= 27)
       fill(color(255,0,0));
-    else if (letter == 'B') 
-      fill(color(255,191,16));
-    else if (letter == 'C') 
-      fill(color(255,144,2));
-    else if (letter == 'F') 
-      fill(color(255,251,14));
-    else if (letter == 'G') 
-      fill(color(100,255,50));
-    else if (letter == 'K') 
-      fill(color(0,150,0));
-    else if (letter == 'L') 
-      fill(color(38,255,205));
-    else if (letter == 'M') 
-      fill(color(25,222,255));
-    else if (letter == 'N') 
-      fill(color(28,126,255));
-    else if (letter == 'O') 
-      fill(color(21,35,255));
-    else if (letter == 'P') 
-      fill(color(107,22,255));
-    else if (letter == 'R') 
-      fill(color(178,21,255));
-    else if (letter == 'S') 
-      fill(color(255,22,250));
-    else if (letter == 'T') 
-      fill(color(255,130,238));
-    else if (letter == 'Z') 
-      fill(color(0,0,0));
-    else 
-      fill(color(155,155,155));
+    else if (id > 27 && id <= 36)
+      fill(color(63,227,255));
+    else if ((id > 36 && id <= 42) ||
+     id == 44 || id == 47 || id == 50 || id == 51)
+      fill(color(255,255,255));
+    else if ((id > 51 && id <= 57) ||
+     id == 43 || id == 48 || id == 49)
+      fill(color(233,206,255));
+    else if (id > 44 && id <= 46)
+      fill(color(254,255,221));
+    else if (id > 57 && id <= 79)
+      fill(color(134,255,91));
 
     circle(this.x, this.y, this.width);
     
     // Draw label
     textFont("Arial", 12);
     
-    if (letter == 'O') 
-      fill(color(255,255,255));
-    else if (letter == 'Z') 
-      fill(color(255,255,255));
-    else
-      fill(color(0,0,0));
+   
+    fill(color(0,0,0));
     
     textAlign(CENTER);
     text(this.label, this.x, this.y+3);
     
     textFont("Arial", 16);
 
-    if (letter == 'O') 
-      fill(color(255,255,255));
-    else if (letter == 'Z') 
-      fill(color(255,255,255));
-    else
-      fill(color(0,0,0));
+    fill(color(0,0,0));
     
     textAlign(CENTER);
     text(this.label.charAt(0), this.x, this.y-10);

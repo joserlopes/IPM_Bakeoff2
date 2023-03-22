@@ -197,7 +197,6 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
   v_margin = vertical_gap / (GRID_ROWS - 1);
 
   names = legendas.getColumn("name");
-  names.sort();
 
   let names_index = 0;
   
@@ -211,6 +210,7 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
       
       // Find the appropriate label and ID for this target
       let legendas_index = c + GRID_COLUMNS * r;
+      
       let target_label = names[names_index++];
       let target_id = legendas.getNum(legendas_index, 1);
       
