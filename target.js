@@ -23,14 +23,14 @@ class Target
   {
     push();
     // Draw target
-    let first_id = this.id;
+    let first_letter = this.label.charAt(0);
 
     switch(first_letter) {
       case '0':
-        fill(color(255,255,255));        
+        fill(color(255,0,0));        
         break;
       case 'A':
-        fill(color(255,0,0));
+        fill(color(255,131,131));
         break;
       case 'B':
         fill(color(255,191,16));
@@ -70,6 +70,12 @@ class Target
         break;
       case 'T':
         fill(color(255,130,238));
+        break;
+      case 'V':
+        fill(color(255,206,231));
+        break;
+      case 'W':
+        fill(color(255,255,255));
         break;
       case 'Z':
         stroke(255);
@@ -114,7 +120,6 @@ class Target
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
-    fill(color(0,0,0));
     
     textAlign(CENTER);
     text(this.label.charAt(0), this.x, this.y-10);
