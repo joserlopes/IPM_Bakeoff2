@@ -1,14 +1,13 @@
 // Target class (position and width)
 class Target
 {
-  constructor(x, y, w, l, id, color_value)
+  constructor(x, y, w, l, id)
   {
     this.x      = x;
     this.y      = y;
     this.width  = w;
     this.label  = l;
     this.id     = id;
-    this.color_value = color_value;
   }
   
   // Checks if a mouse click took place
@@ -27,9 +26,9 @@ class Target
     let letter = this.label.charAt(0);
 
     if (letter == '0') 
-      fill(color(255,255,255));        
+      fill(color(255,0,0));        
     else if (letter == 'A') 
-      fill(color(255,0,0));
+      fill(color(255,131,131));
     else if (letter == 'B') 
       fill(color(255,191,16));
     else if (letter == 'C') 
@@ -56,10 +55,12 @@ class Target
       fill(color(255,22,250));
     else if (letter == 'T') 
       fill(color(255,130,238));
-    else if (letter == 'Z') {
-      stroke(255);
+    else if (letter == 'V') 
+      fill(color(255,206,231));
+    else if (letter == 'W') 
+      fill(color(255,255,255));
+    else if (letter == 'Z') 
       fill(color(0,0,0));
-    }      
     else 
       fill(color(155,155,155));
 
@@ -68,9 +69,7 @@ class Target
     // Draw label
     textFont("Arial", 12);
     
-    if (letter == 'O') 
-      fill(color(255,255,255));
-    else if (letter == 'Z') 
+    if (letter == 'O' || letter == 'P' || letter == 'Z' ) 
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
@@ -80,9 +79,7 @@ class Target
     
     textFont("Arial", 16);
 
-    if (letter == 'O') 
-      fill(color(255,255,255));
-    else if (letter == 'Z') 
+    if (letter == 'O' || letter == 'P' || letter == 'Z') 
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
