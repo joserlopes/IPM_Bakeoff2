@@ -141,6 +141,7 @@ function mousePressed()
       // Check if the user clicked over one of the targets
       if (targets[i].clicked(mouseX, mouseY)) 
       {
+        print(trials[current_trial]);
         // Checks if it was the correct target
         if (targets[i].id === trials[current_trial]) hits++;
         else misses++;
@@ -196,11 +197,14 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
   h_margin = horizontal_gap / (GRID_COLUMNS -1);
   v_margin = vertical_gap / (GRID_ROWS - 1);
 
-  names = legendas.getColumn("name");
-  names.sort();
-
+  let names = legendas.getColumn("name");
+  let IDs_preSort = {}
   let names_index = 0;
-  let color_value = 0;
+
+  for (let i = 0; i < legendas.getRowCount(); i++) {
+    IDs_preSort[names[i]] = i;
+  }
+  names.sort();  
 
   // Set targets in a 8 x 10 grid
   for (var r = 0; r < GRID_ROWS; r++)
@@ -212,15 +216,12 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
       let target_y = (v_margin + target_size) * r + target_size/2;
       
       // Find the appropriate label and ID for this target
-      let legendas_index = c + GRID_COLUMNS * r;
       let target_label = names[names_index++];
-      let target_id = legendas.getNum(legendas_index, 1);
-      
-      
-      let target = new Target(target_x, target_y + 40, target_size, target_label, target_id, color_value);
-      targets.push(target);
+      let target_id = IDs_preSort[target_label];
 
-      color_value += 2;
+      
+      let target = new Target(target_x, target_y + 40, target_size, target_label, target_id);
+      targets.push(target);
     }  
   }
 }
