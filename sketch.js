@@ -32,6 +32,8 @@ let attempt               = 0;      // users complete each test twice to account
 // Target list
 let targets               = [];
 
+let letter_frequency = {'A': 5, 'B': 9, 'C': 7, 'F': 2, 'G': 5, 'K': 2, 'L': 3, 'M': 7, 'N': 1, 'O': 4, 'P': 11, 'R': 6, 'S': 8, 'V': 2, 'W': 2, 'Y': 2, 'Z': 1};
+
 // Ensures important data is loaded before the program starts
 function preload()
 {
@@ -197,19 +199,19 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
   h_margin = horizontal_gap / (GRID_COLUMNS -1);
   v_margin = vertical_gap / (GRID_ROWS - 1);
 
-  let names = legendas.getColumn("name");
+  let names = ["0% Milk", "Anjou", "Aspargus", "Avocado", "Beef Tomato", "Bio Cream", "Bio Milk", "Bio Soy Milk", "0% Yoghurt", "Apple Juice", "Aubergine", "Banana", "Bell Peper", "Bio Fat Milk", "Bio Skim Milk", "Bio Soyghurt", "Cabbage", "Carrots", "Cherry Yoghurt", "Cucumber", "Fresh Juice", "Garlic", "Golden", "Kaiser", "Cantaloupe", "Cherry Juice", "Conference", "Fat Milk", "Galia Melon", "Ginger", "Granny Smith", "Kiwi", "Leek", "Lime", "Mango", "Mango Yoghurt", "Mild Pepper", "Nectarine", "Oatghurt", "Orange Juice", "Lemon", "Mandarin Juice", "Mango Juice", "Melon", "Mushroom", "Oat Milk", "Orange", "Papaya", "Passion Fruit", "Peach Juice", "Pear Yoghurt", "Pink Lady", "Plum", "Red Beet", "Red Grapefruit", "Rocoto Pepper", "Peach", "Pear Juice", "Pinneapple", "Piri Piri", "Pomegranate", "Red Delicious", "Red Potato", "Royale Gala", "Satsumas", "Sour Cream", "Soy Milk", "Standar Milk", "Tomato", "Vine Tomato", "White Potato", "Yoghurt", "Smoothie", "Sour Milk", "Soyghurt", "Sweet Potato", "Vanilla Yoghurt", "Watermelon", "Yellow Onion", "Zucchini"];
   let IDs_preSort = {}
   let names_index = 0;
 
   for (let i = 0; i < legendas.getRowCount(); i++) {
     IDs_preSort[names[i]] = i;
   }
-  names.sort();  
 
   // Set targets in a 8 x 10 grid
-  for (var r = 0; r < GRID_ROWS; r++)
+  for (var c = 0; c < GRID_COLUMNS; c++)
   {
-    for (var c = 0; c < GRID_COLUMNS; c++)
+    for (var r = 0; r < GRID_ROWS; r++)
+
     {
       
       let target_x = 40 + (h_margin + target_size) * c + target_size/2;        // give it some margin from the left border
