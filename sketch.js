@@ -32,6 +32,8 @@ let attempt               = 0;      // users complete each test twice to account
 // Target list
 let targets               = [];
 
+let letters_frequency = {'0': 2, 'A': 5, 'B': 9, 'C': 7, 'F': 2, 'G': 5, 'K': 2, 'L': 3, 'M': 7, 'N': 1, 'O': 4, 'P': 11, 'R': 6, 'S': 8, 'V': 2, 'W': 2, 'Y': 2, 'Z': 0};
+
 // Ensures important data is loaded before the program starts
 function preload()
 {
@@ -207,10 +209,10 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
   names.sort();  
 
   // Set targets in a 8 x 10 grid
-  for (var r = 0; r < GRID_ROWS; r++)
-  {
-    for (var c = 0; c < GRID_COLUMNS; c++)
-    {
+  for (var c = 0; c < GRID_COLUMNS; c++) {
+
+    for (var r = 0; r < GRID_ROWS; r++) {    
+    
       
       let target_x = 40 + (h_margin + target_size) * c + target_size/2;        // give it some margin from the left border
       let target_y = (v_margin + target_size) * r + target_size/2;
@@ -222,7 +224,7 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
       
       let target = new Target(target_x, target_y + 40, target_size, target_label, target_id);
       targets.push(target);
-    }  
+    } 
   }
 }
 
