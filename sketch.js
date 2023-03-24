@@ -32,7 +32,7 @@ let attempt               = 0;      // users complete each test twice to account
 // Target list
 let targets               = [];
 
-let letters_frequency = {'0': 2, 'A': 5, 'B': 9, 'C': 7, 'F': 2, 'G': 5, 'K': 2, 'L': 3, 'M': 7, 'N': 1, 'O': 4, 'P': 11, 'R': 6, 'S': 8, 'V': 2, 'W': 2, 'Y': 2, 'Z': 0};
+let letter_frequency = {'A': 5, 'B': 9, 'C': 7, 'F': 2, 'G': 5, 'K': 2, 'L': 3, 'M': 7, 'N': 1, 'O': 4, 'P': 11, 'R': 6, 'S': 8, 'V': 2, 'W': 2, 'Y': 2, 'Z': 1};
 
 // Ensures important data is loaded before the program starts
 function preload()
@@ -143,7 +143,6 @@ function mousePressed()
       // Check if the user clicked over one of the targets
       if (targets[i].clicked(mouseX, mouseY)) 
       {
-        print(trials[current_trial]);
         // Checks if it was the correct target
         if (targets[i].id === trials[current_trial]) hits++;
         else misses++;
@@ -199,20 +198,22 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
   h_margin = horizontal_gap / (GRID_COLUMNS -1);
   v_margin = vertical_gap / (GRID_ROWS - 1);
 
-  let names = legendas.getColumn("name");
+  let names_preOrder = legendas.getColumn(0);
+
+  let names = ["0% Milk", "Anjou", "Asparagus", "Avocado", "Beef Tomato", "Bio Cream", "Bio Milk", "Bio Soy Milk", "0% Yoghurt", "Apple Juice", "Aubergine", "Banana", "Bell Pepper", "Bio Fat Milk", "Bio Skim Milk", "Bio Soyghurt", "Cabbage", "Carrots", "Cherry Yoghurt", "Cucumber", "Fresh Juice", "Garlic", "Golden", "Kaiser", "Cantaloupe", "Cherry Juice", "Conference", "Fat Milk", "Galia Melon", "Ginger", "Granny Smith", "Kiwi", "Leek", "Lime", "Mango", "Mango Yoghurt", "Mild Pepper", "Nectarine", "Oatghurt", "Orange Juice", "Lemon", "Mandarin Juice", "Mango Juice", "Melon", "Mushroom", "Oat Milk", "Orange", "Papaya", "Passion Fruit", "Peach Juice", "Pear Yoghurt", "Pink Lady", "Plum", "Red Beet", "Red Grapefruit", "Rocoto Pepper", "Peach", "Pear Juice", "Pineapple", "Piri Piri", "Pomegranate", "Red Delicious", "Red Potato", "Royal Gala", "Satsumas", "Sour Cream", "Soy Milk", "Standard Milk", "Tomato", "Vine Tomato", "White Potato", "Yoghurt", "Smoothie", "Sour Milk", "Soyghurt", "Sweet Potato", "Vanilla Yoghurt", "Watermelon", "Yellow Onion", "Zucchini"];
   let IDs_preSort = {}
   let names_index = 0;
 
-  for (let i = 0; i < legendas.getRowCount(); i++) {
-    IDs_preSort[names[i]] = i;
+  for (let i = 0; i < legendas.getRowCount(); i++) {                                                   
+    IDs_preSort[names_preOrder[i]] = i;
   }
-  names.sort();  
 
   // Set targets in a 8 x 10 grid
-  for (var c = 0; c < GRID_COLUMNS; c++) {
+  for (var c = 0; c < GRID_COLUMNS; c++)
+  {
+    for (var r = 0; r < GRID_ROWS; r++)
 
-    for (var r = 0; r < GRID_ROWS; r++) {    
-    
+    {
       
       let target_x = 40 + (h_margin + target_size) * c + target_size/2;        // give it some margin from the left border
       let target_y = (v_margin + target_size) * r + target_size/2;
@@ -220,7 +221,6 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
       // Find the appropriate label and ID for this target
       let target_label = names[names_index++];
       let target_id = IDs_preSort[target_label];
-
       
       let target = new Target(target_x, target_y + 40, target_size, target_label, target_id);
       targets.push(target);

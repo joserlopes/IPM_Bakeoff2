@@ -100,6 +100,7 @@ class Target
     text(this.label, this.x, this.y+3);
     
     textFont("Arial", 16);
+    textStyle(BOLD);
 
     if (first_letter == 'O' || first_letter == 'P' || first_letter == 'Z') 
       fill(color(255,255,255));
