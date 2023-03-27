@@ -85,21 +85,6 @@ class Target
         fill(color(155,155,155));
         break;
     }
-    
-    /*if (id <= 27)
-      fill(color(255,0,0));
-    else if (id > 27 && id <= 36)
-      fill(color(63,227,255));
-    else if ((id > 36 && id <= 42) ||
-     id == 44 || id == 47 || id == 50 || id == 51)
-      fill(color(255,255,255));
-    else if ((id > 51 && id <= 57) ||
-     id == 43 || id == 48 || id == 49)
-      fill(color(233,206,255));
-    else if (id > 44 && id <= 46)
-      fill(color(254,255,221));
-    else if (id > 57 && id <= 79)
-      fill(color(134,255,91));*/
 
     circle(this.x, this.y, this.width);
     
@@ -114,7 +99,8 @@ class Target
     textAlign(CENTER);
     text(this.label, this.x, this.y+3);
     
-    textFont("Arial Black", 16);
+    textFont("Arial", 16);
+    textStyle(BOLD);
 
     if (first_letter == 'C' || first_letter == 'S' || first_letter == 'Z' || first_letter == 'T' || first_letter == 'B' || first_letter == 'R' || first_letter == 'N')
       fill(color(255,255,255));
