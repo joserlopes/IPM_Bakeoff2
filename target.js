@@ -27,16 +27,16 @@ class Target
 
     switch(first_letter) {
       case '0':
-        fill(color(255,0,0));        
+        fill(color(255,191,16));        
         break;
       case 'A':
         fill(color(255,131,131));
         break;
       case 'B':
-        fill(color(255,191,16));
+        fill(color(178,21,255));
         break;
       case 'C':
-        fill(color(255,144,2));
+        fill(color(21,35,255));
         break;
       case 'F':
         fill(color(255,251,14));
@@ -45,31 +45,31 @@ class Target
         fill(color(100,255,50));
         break;
       case 'K':
-        fill(color(0,150,0));
+        fill(color(255,130,238));
         break;
       case 'L':
-        fill(color(38,255,205));
+        fill(color(255,22,250));
         break;
       case 'M':
-        fill(color(25,222,255));
+        fill(color(255,144,2));
         break;
       case 'N':
         fill(color(28,126,255));
         break;
       case 'O':
-        fill(color(21,35,255));
+        fill(color(25,222,255));
         break;
       case 'P':
-        fill(color(107,22,255));
+        fill(color(38,255,205)); //107,22,255
         break;
       case 'R':
-        fill(color(178,21,255));
+        fill(color(255,0,0));
         break;
       case 'S':
-        fill(color(255,22,250));
+        fill(color(210,105,30));
         break;
       case 'T':
-        fill(color(255,130,238));
+        fill(color(0,150,0));
         break;
       case 'V':
         fill(color(255,206,231));
@@ -106,7 +106,7 @@ class Target
     // Draw label
     textFont("Arial", 12);
     
-    if (first_letter == 'O' || first_letter == 'P' || first_letter == 'Z') 
+    if (first_letter == 'C' || first_letter == 'S' || first_letter == 'Z'|| first_letter == 'T' || first_letter == 'B' || first_letter == 'R' || first_letter == 'N') 
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
@@ -116,7 +116,7 @@ class Target
     
     textFont("Arial Black", 16);
 
-    if (first_letter == 'O' || first_letter == 'P' || first_letter == 'Z') 
+    if (first_letter == 'C' || first_letter == 'S' || first_letter == 'Z' || first_letter == 'T' || first_letter == 'B' || first_letter == 'R' || first_letter == 'N')
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
