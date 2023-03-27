@@ -143,6 +143,7 @@ function mousePressed()
       // Check if the user clicked over one of the targets
       if (targets[i].clicked(mouseX, mouseY)) 
       {
+        print(targets[i].id, trials[current_trial]);
         // Checks if it was the correct target
         if (targets[i].id === trials[current_trial]) hits++;
         else misses++;
@@ -200,7 +201,7 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
 
   let names_preOrder = legendas.getColumn(0);
 
-  let names = ["0% Milk", "Anjou", "Aspargus", "Avocado", "Beef Tomato", "Bio Cream", "Bio Milk", "Bio Soy Milk", "0% Yoghurt", "Apple Juice", "Aubergine", "Banana", "Bell Peper", "Bio Fat Milk", "Bio Skim Milk", "Bio Soyghurt", "Cabbage", "Carrots", "Cherry Yoghurt", "Cucumber", "Fresh Juice", "Garlic", "Golden", "Kaiser", "Cantaloupe", "Cherry Juice", "Conference", "Fat Milk", "Galia Melon", "Ginger", "Granny Smith", "Kiwi", "Leek", "Lime", "Mango", "Mango Yoghurt", "Mild Pepper", "Nectarine", "Oatghurt", "Orange Juice", "Papaya" ,"Lemon", "Mandarin Juice", "Mango Juice", "Melon", "Mushroom", "Oat Milk", "Orange", "Passion Fruit", "Peach Juice", "Pear Yoghurt", "Pink Lady", "Plum", "Red Beet", "Red Grapefruit", "Rocoto Pepper", "Peach", "Pear Juice", "Pinneapple", "Piri Piri", "Pomegranate", "Red Delicious", "Red Potato", "Royale Gala", "Satsumas", "Sour Cream", "Soy Milk", "Standar Milk", "Tomato", "Vine Tomato", "White Potato", "Yoghurt", "Smoothie", "Sour Milk", "Soyghurt", "Sweet Potato", "Vanilla Yoghurt", "Watermelon", "Yellow Onion", "Zucchini"];
+  let names = ["0% Milk", "Anjou", "Asparagus", "Avocado", "Beef Tomato", "Bio Cream", "Bio Milk", "Bio Soy Milk", "0% Yoghurt", "Apple Juice", "Aubergine", "Banana", "Bell Pepper", "Bio Fat Milk", "Bio Skim Milk", "Bio Soyghurt", "Cabbage", "Carrots", "Cherry Yoghurt", "Cucumber", "Fresh Juice", "Garlic", "Golden", "Kaiser", "Cantaloupe", "Cherry Juice", "Conference", "Fat Milk", "Galia Melon", "Ginger", "Granny Smith", "Kiwi", "Leek", "Lime", "Mango", "Mango Yoghurt", "Mild Pepper", "Nectarine", "Oatghurt", "Orange Juice", "Papaya" ,"Lemon", "Mandarin Juice", "Mango Juice", "Melon", "Mushroom", "Oat Milk", "Orange", "Passion Fruit", "Peach Juice", "Pear Yoghurt", "Pink Lady", "Plum", "Red Beet", "Red Grapefruit", "Rocoto Pepper", "Peach", "Pear Juice", "Pineapple", "Piri Piri", "Pomegranate", "Red Delicious", "Red Potato", "Royal Gala", "Satsumas", "Sour Cream", "Soy Milk", "Standard Milk", "Tomato", "Vine Tomato", "White Potato", "Yoghurt", "Smoothie", "Sour Milk", "Soyghurt", "Sweet Potato", "Vanilla Yoghurt", "Watermelon", "Yellow Onion", "Zucchini"];
 
 
   let IDs_preSort = {}
@@ -209,6 +210,8 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
   for (let i = 0; i < legendas.getRowCount(); i++) {                                                   
     IDs_preSort[names_preOrder[i]] = i;
   }
+
+  // print(IDs_preSort);
 
   // Set targets in a 8 x 10 grid
   for (var c = 0; c < GRID_COLUMNS; c++)
@@ -223,6 +226,7 @@ function createTargets(target_size, horizontal_gap, vertical_gap)
       // Find the appropriate label and ID for this target
       let target_label = names[names_index++];
       let target_id = IDs_preSort[target_label];
+      print(target_label, target_id);
       
       let target = new Target(target_x, target_y + 40, target_size, target_label, target_id);
       targets.push(target);
