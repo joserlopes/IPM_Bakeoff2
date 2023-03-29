@@ -32,8 +32,6 @@ let attempt               = 0;      // users complete each test twice to account
 // Target list
 let targets               = [];
 
-let letter_frequency = {'A': 5, 'B': 9, 'C': 7, 'F': 2, 'G': 5, 'K': 2, 'L': 3, 'M': 7, 'N': 1, 'O': 4, 'P': 11, 'R': 6, 'S': 8, 'V': 2, 'W': 2, 'Y': 2, 'Z': 1};
-
 // Ensures important data is loaded before the program starts
 function preload()
 {

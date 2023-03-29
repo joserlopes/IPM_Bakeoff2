@@ -26,55 +26,58 @@ class Target
     let first_letter = this.label.charAt(0);
 
     switch(first_letter) {
-      case '0':
-        fill(color(255,191,16));        
-        break;
-      case 'A':
-        fill(color(255,131,131));
-        break;
-      case 'B':
-        fill(color(178,21,255));
-        break;
-      case 'C':
-        fill(color(21,35,255));
-        break;
-      case 'F':
-        fill(color(255,251,14));
-        break;
-      case 'G':
-        fill(color(100,255,50));
-        break;
-      case 'K':
-        fill(color(255,130,238));
+      case 'R':
+        fill(color(255,0,0));        
         break;
       case 'L':
-        fill(color(255,22,250));
-        break;
-      case 'M':
-        fill(color(255,144,2));
-        break;
-      case 'N':
-        fill(color(28,126,255));
-        break;
-      case 'O':
-        fill(color(25,222,255));
-        break;
-      case 'P':
-        fill(color(38,255,205)); //107,22,255
-        break;
-      case 'R':
-        fill(color(255,0,0));
-        break;
-      case 'S':
-        fill(color(210,105,30));
+        fill(color(38, 20, 96));
         break;
       case 'T':
-        fill(color(0,150,0));
+        stroke(255);
+        fill(color(168,73,15));
+        break;
+      case 'S':
+        fill(color(255,144,2));
         break;
       case 'V':
-        fill(color(255,206,231));
+        fill(color(255,251,14));
         break;
-      case 'W':
+      case 'A':
+        fill(color(100,255,50));
+        break;
+      case '0':
+        fill(color(0,150,0));
+        break;
+      case 'B':
+        fill(color(38,255,205));
+        break;
+      case 'C':
+        fill(color(0, 193, 124));//25,222,255));
+        break;
+      case 'F':
+        stroke(255);
+        fill(color(28,126,255));
+        break;
+      case 'G':
+        fill(color(21,35,255));
+        break;
+      case 'K':
+        fill(color(107,22,255));
+        break;
+      case 'M':
+        fill(color(178,21,255));
+        break;
+      case 'P':
+        fill(color(155, 0, 166));
+        break;
+      case 'O':
+        fill(color(255,130,238));
+        break;
+      case 'N':
+        stroke(255);
+        fill(color(255,22,255));
+        break;
+      case 'Y':
         fill(color(255,255,255));
         break;
       case 'Z':
@@ -91,7 +94,7 @@ class Target
     // Draw label
     textFont("Arial", 12);
     
-    if (first_letter == 'C' || first_letter == 'S' || first_letter == 'Z'|| first_letter == 'T' || first_letter == 'B' || first_letter == 'R' || first_letter == 'N') 
+    if (first_letter == 'G' || first_letter == 'S' || first_letter == 'Z'|| first_letter == 'T' || first_letter == 'R' || first_letter == 'N' || first_letter == 'L' || first_letter == 'K' || first_letter == '0' || first_letter == 'F' || first_letter == 'P') 
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
@@ -102,7 +105,7 @@ class Target
     textFont("Arial", 16);
     textStyle(BOLD);
 
-    if (first_letter == 'C' || first_letter == 'S' || first_letter == 'Z' || first_letter == 'T' || first_letter == 'B' || first_letter == 'R' || first_letter == 'N')
+    if (first_letter == 'G' || first_letter == 'S' || first_letter == 'Z' || first_letter == 'T' || first_letter == 'R' || first_letter == 'N' || first_letter == 'L' || first_letter == 'K' || first_letter == '0' || first_letter == 'F' || first_letter == 'P')
       fill(color(255,255,255));
     else
       fill(color(0,0,0));
